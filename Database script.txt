@@ -1,0 +1,194 @@
+#create a keyspace named loan_management
+
+CREATE KEYSPACE loan_management
+  WITH REPLICATION = {
+    'class' : 'NetworkTopologyStrategy',
+    'datacenter1': 3
+  };
+
+
+#Create tables
+
+USE loan_management;
+
+CREATE TABLE Loans (
+   L_ID int,
+   B_ID int,
+   agent text,
+   amount double,
+   loan_term text,
+   date timestamp,
+   status text,
+   interest_rate double,
+   balance double,
+   branch text,
+   PRIMARY KEY ( L_ID, date)) WITH CLUSTERING ORDER BY (date DESC);
+
+CREATE TABLE Borrowers (
+   B_ID int,
+   names text,
+   contact text,
+   address text,
+   employed boolean,
+   monthly_income double,
+   PRIMARY KEY (B_ID, names)
+) WITH CLUSTERING ORDER BY (names ASC);
+
+CREATE TABLE Agents (
+   A_ID int,
+   Br_ID int,
+   names text,
+   email text,
+   phone_number text,
+   region text,
+   PRIMARY KEY (A_ID, names)
+)  WITH CLUSTERING ORDER BY (names ASC);
+
+CREATE TABLE Payments (
+   P_ID int,
+   L_ID int,
+   amount double,
+   date timestamp,
+   charge double,
+   PRIMARY KEY (P_ID, date)
+) WITH CLUSTERING ORDER BY (date DESC);
+
+CREATE TABLE Collateral (
+   L_ID int,
+   B_ID int,
+   collateral_type text,
+   collateral_value text,
+   description text,
+    PRIMARY KEY (B_ID, L_ID)
+);
+
+CREATE TABLE Branches (
+   Br_ID int,
+   br_name text,
+   address text,
+   contact text,
+   region text,
+   PRIMARY KEY (Br_ID)
+);
+
+#insert data into the tables
+
+Loans
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (1,1,‘Ntsoaki’, 2500, ‘3 years’, ‘2022-02-15’, ‘Active’, 12, 2200, ‘Maseru’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (2, 2, ‘Lebohang’, 5000, ‘5 years’,’2021-09-10’,‘Active’, 8, 4600,‘Mafeteng’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (3,3,‘Thabo’,1500, ‘2 years’, ‘2022-04-01’,‘Active’,15,1300,’Maseru’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (4,4,‘Kefuoe’,8000,‘7 years’,’2021-08-25’,‘Default’, 10,8000, ‘Quthing’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (5,5,Tsebo,4000,‘4 years’,’2021-11-12’,‘Active’,9,3600,‘Mafeteng’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (6,6,’Moshe’,3500,’3 years’,’2022-03-20’,‘Active’,14,3050,‘Maseru’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (7,7,’Naledi’,6500,‘6 years’,’2021-10-05’,‘Active’,11,5850,‘Quthing’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (8,8, ‘Relebohile’, 2000, ‘2 years’, ‘2022-05-02’, ‘Active’, 13, 1740,’Maseru’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (9,9,‘Rethabile’,4500,‘5 years’,’2021-12-07’,‘Active’,8.50,4132.5,‘Mafeteng’);
+
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (10,10,‘Mpho’,1800,‘2 years’,’2022-02-18’,’Active’,12.50,1575,‘Maseru’);
+
+Borrowers
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (1,‘Thabo Mohale’,’62876543’,‘Pokane ,Maseru,Lesotho’,’Yes’,8000);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (2,‘Mamello Tsekoa’,‘68123456’,‘Hafete, Mafeteng, Lesotho’,‘Yes’,10000);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (3,‘Tsebo Mokhali’,’67894561’,‘Hilltop, Quthing, Lesotho’,‘No’,0);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (4,‘Rethabile Motaung’,‘67987654’ ,‘Riverside, Mohale's Hoek, Lesotho’,‘Yes’,12000);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (5,‘Mpho Lekhooa’,‘62897543’,‘Ha Mabote, Maseru, Lesotho’,‘Yes’,‘9000’);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (6,‘Neo Mahao’,67823456’,‘Tlokoeng, Mohale's Hoek, Lesotho’,‘Yes’,11000);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (7,‘Tumelo Tšoaeli’,‘67984561’,‘Mabote, Qacha's Nek, Lesotho’,‘Yes’,9500);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (8,‘Nthabiseng Mohapi’,‘62867543’,‘Mpilo, Maseru, Lesotho’,‘No’,0);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (9,‘Kefuoe Kholoana’,‘68123457’,‘Ha Ntja, Butha-Buthe, Lesotho’,‘Yes’,7000);
+
+INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (10,‘Mohau Motloung’,‘67804561’,‘Phakalane, Qacha's Nek, Lesotho’,‘Yes’,8500);
+
+Agents
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (1, 2, “Mpho Mokoena”, “mphomokoena@example.com”, “55512340”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (2, 1, “Tumelo Moholo”, “tumelomoholo@example.com”, “55512341”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (3, 3, “Khotso Ntuli”, “khotsontuli@example.com”, “55512343”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (4, 2, “Mosiuoa Mohapi”, “mosiuoa.mohapi@example.com”, “55512342”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (5, 1, “Neo Masenya”, “neo.masenya@example.com”, “55512344”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (6, 3, “Masechaba Sebatane”, “masechaba.sebatane@example.com”, “55512345”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (7, 2, “Tsebo Mofokeng”, “tsebo.mofokeng@example.com”, “55512346”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (8, 1, “Tlali Mosebi”, “tlali.mosebi@example.com”, “55512347”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (9, 3, “Lehlohonolo Ramafole”, “lehlohonolo.ramafole@example.com”, “55512348”);
+
+INSERT INTO Agents (A_ID, Br_ID, names, email, phone_number) VALUES (10, 2, “Itumeleng Molefe”, “itumeleng.molefe@example.com”, “55512349”);
+
+
+
+Payments
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (1, 1, 500, 2023-03-04, 100);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (2, 2, 750, 2023-03-11, 150);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (3, 3, 12000, 2023-03-11, 2400);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (4, 4, 3400, 2023-03-19, 680);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (5, 5, 4350, 2023-03-20, 870);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (6, 6, 1110, 2023-03-21, 222);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (7, 7, 100, 2023-03-21, 20);
+
+INSERT INTO Payments (P_ID, L_ID,amount, date, charge) VALUES (8, 8, 320, 2023-03-24, 64);
+
+Branches
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (1, “Mokhotlong Branch”, “Mapholaneng”, “53405800”, “North” );
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (2, “Butha-Buthe Branch”, “Teba”, “53405801”, “North” );
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (3, “Leribe Branch”, “Hlotle”, “53405802”, “North” );
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (4, “Berea Branch”, “Kolonyama”, “53405803”, “Central”);
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (5, “Maseru Branch”, “Sefika Complex”, “53405804”, “Central”);
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (6, “Mafeteng Branch”, “Teba”, “53405805”, “Central”);
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (7, “Mohale’s Hoek Branch”, “Qalakheng”, “53405806”, “South”);
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (8, “Quthing Branch”, “Upper Moyeni”, “53405807”, “South”);
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (9, “Qacha’s Nek Branch”, “Letloepe”, “53405808”, “South”);
+
+INSERT INTO Branches (Br_ID, br_name, address, contact, region) VALUES (10, “Thaba-Tseka Branch”, “Bokong”, “53405809”, “Central”);
+
+Collateral
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (1, 1, “car”, 180000, “Fair conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (2, 2, “phone”, 25000, “Good conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (3, 3, “laptop”, 13000, “Fair conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (4, 4, “phone”, 5000, “Good conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (5, 5, “car”, 17000, “Fair conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (6, 6, “watch”, 340000, “Fair conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (7, 7, “ring”, 500000, “Good conditions” );
+
+INSERT INTO Collateral (L_ID, B_ID, collateral_type, collateral_value, description) VALUES (8, 8, “house”, 230000, “Fair conditions” );
