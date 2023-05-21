@@ -74,25 +74,25 @@ CREATE TABLE Branches (
 #insert data into the tables
 
 Loans
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (1,1,‘Ntsoaki’, 2500, ‘3 years’, ‘2022-02-15’, ‘Active’, 12, 2200, ‘Maseru’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (1,1,‘Ntsoaki’, 2500, ‘3 years’, ‘2022-02-15’, ‘Active’, 12, 2200);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (2, 2, ‘Lebohang’, 5000, ‘5 years’,’2021-09-10’,‘Active’, 8, 4600,‘Mafeteng’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (2, 2, ‘Lebohang’, 5000, ‘5 years’,’2021-09-10’,‘Active’, 8, 4600);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (3,3,‘Thabo’,1500, ‘2 years’, ‘2022-04-01’,‘Active’,15,1300,’Maseru’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (3,3,‘Thabo’,1500, ‘2 years’, ‘2022-04-01’,‘Active’,15,1300);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (4,4,‘Kefuoe’,8000,‘7 years’,’2021-08-25’,‘Default’, 10,8000, ‘Quthing’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (4,4,‘Kefuoe’,8000,‘7 years’,’2021-08-25’,‘Default’, 10,8000);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (5,5,Tsebo,4000,‘4 years’,’2021-11-12’,‘Active’,9,3600,‘Mafeteng’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (5,5,Tsebo,4000,‘4 years’,’2021-11-12’,‘Active’,9,3600);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (6,6,’Moshe’,3500,’3 years’,’2022-03-20’,‘Active’,14,3050,‘Maseru’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (6,6,’Moshe’,3500,’3 years’,’2022-03-20’,‘Active’,14,3050);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (7,7,’Naledi’,6500,‘6 years’,’2021-10-05’,‘Active’,11,5850,‘Quthing’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (7,7,’Naledi’,6500,‘6 years’,’2021-10-05’,‘Active’,11,5850);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (8,8, ‘Relebohile’, 2000, ‘2 years’, ‘2022-05-02’, ‘Active’, 13, 1740,’Maseru’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (8,8, ‘Relebohile’, 2000, ‘2 years’, ‘2022-05-02’, ‘Active’, 13, 1740);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (9,9,‘Rethabile’,4500,‘5 years’,’2021-12-07’,‘Active’,8.50,4132.5,‘Mafeteng’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (9,9,‘Rethabile’,4500,‘5 years’,’2021-12-07’,‘Active’,8.50,4132.5);
 
-INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance, Branch) Values (10,10,‘Mpho’,1800,‘2 years’,’2022-02-18’,’Active’,12.50,1575,‘Maseru’);
+INSERT INTO Loans (L_lD, B_ID, Agent, Loan_term, Date, Status, Interest_rate,Balance) Values (10,10,‘Mpho’,1800,‘2 years’,’2022-02-18’,’Active’,12.50,1575);
 
 Borrowers
 INSERT INTO Borrowers (B_ID, Names, Contact, Address, Employment, Monthly_Income) Values (1,‘Thabo Mohale’,’62876543’,‘Pokane ,Maseru,Lesotho’,’Yes’,8000);
