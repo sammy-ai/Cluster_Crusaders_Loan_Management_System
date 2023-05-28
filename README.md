@@ -19,5 +19,7 @@ $INSTANCE3=$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" South_No
 # Now running on citus using the central node as a master and North and South as worker nodes. There's also a manager node.
 
 # How the system works
-(Make sure the database 'loanmanagement' is running)
+# open the 'Loan Management System 0.1' folder
+(Make sure the database 'loanmanagement' is running) a docker compose file has been provided if you wish to create the serverl
 First run the node server in the node-postgres folder using 'node index' in the directory then run the react application in the 'react-postgres' folder by running the command 'npm start' in the same directory
+
