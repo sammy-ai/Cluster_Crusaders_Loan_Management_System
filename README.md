@@ -23,3 +23,6 @@ $INSTANCE3=$(docker inspect --format="{{ .NetworkSettings.IPAddress }}" South_No
 (Make sure the database 'loanmanagement' is running) a docker compose file has been provided if you wish to create the serverl
 First run the node server in the node-postgres folder using 'node index' in the directory then run the react application in the 'react-postgres' folder by running the command 'npm start' in the same directory
 
+so the site was supposed to run together with the servers but like stated, there is no connection meaning that the login button is harcoded.
+# link to site is https://sammy-ai.github.io/The_Cluster_Crusaders_Loan_Management_System/
+
